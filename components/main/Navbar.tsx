@@ -3,7 +3,8 @@ import Image from "next/image";
 import React from "react";
 
 const Navbar = () => {
-  const socialLinks = {
+  // Define the type for social links
+  const socialLinks: Record<'Instagram' | 'Github' | 'LinkedIn', string> = {
     Instagram: "https://www.instagram.com/arjun28jain/",
     Github: "https://github.com/arjun28jain",
     LinkedIn: "https://www.linkedin.com/in/arjun-jain-8821a0212/",
@@ -43,7 +44,7 @@ const Navbar = () => {
         <div className="flex flex-row gap-5 text-gray-200">
           {Socials.map((social) => (
             <a
-              href={socialLinks[social.name]}
+              href={socialLinks[social.name as 'Instagram' | 'Github' | 'LinkedIn']}
               key={social.name}
               target="_blank"
               rel="noopener noreferrer"
